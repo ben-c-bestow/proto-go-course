@@ -55,10 +55,10 @@ func doMap() *pb.MapExample {
 }
 
 func doFile(p proto.Message) {
-	path := "simple.bin"
+	path := "address.bin"
 
 	writeToFile(path, p)
-	message := &pb.Simple{}
+	message := &pb.AddressBook{}
 	readFromFile(path, message)
 	fmt.Println(message)
 }
@@ -96,12 +96,12 @@ func main() {
 	// doOneOf(&pb.Result_Message{Message: "hi"})
 	// fmt.Println(doMap())
 
-	// doFile(doSimple())
+	doFile(doAddressBook())
 	// jsonString := doToJSON(doComplex())
 	// message := doFromJSON(jsonString, reflect.TypeOf(pb.Complex{}))
 	// fmt.Println(jsonString)
 	// fmt.Println(message)
 
-	jsonString := doToJSON(doAddressBook())
-	fmt.Println(jsonString)
+	// jsonString := doToJSON(doAddressBook())
+	// fmt.Println(jsonString)
 }
