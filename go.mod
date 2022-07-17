@@ -1,5 +1,5 @@
-module github.com/Clement-Jean/proto-go-course
+module github.com/ben-c-bestow/proto-go-course
 
-go 1.17
+go 1.16
 
 require google.golang.org/protobuf v1.28.0

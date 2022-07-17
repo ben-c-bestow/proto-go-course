@@ -8,33 +8,32 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-func writeToFile(fname string, pb proto.Message) error {
+func writeToFile(filename string, pb proto.Message) {
 	out, err := proto.Marshal(pb)
+
 	if err != nil {
-		log.Fatalln("Can't serialise to bytes", err)
-		return err
+		log.Fatalln("Can't serialize! Aaaaaugh!", err)
+		return
 	}
 
-	if err = ioutil.WriteFile(fname, out, 0644); err != nil {
+	if err = ioutil.WriteFile(filename, out, 0644); err != nil {
 		log.Fatalln("Can't write to file", err)
-		return err
+		return
 	}
 
 	fmt.Println("Data has been written!")
-	return nil
 }
 
-func readFromFile(fname string, pb proto.Message) error {
-	in, err := ioutil.ReadFile(fname)
+func readFromFile(filename string, pb proto.Message) {
+	in, err := ioutil.ReadFile(filename)
+
 	if err != nil {
-		log.Fatalln("Can't read from file", err)
-		return err
+		log.Fatalln("Can't read file", err)
+		return
 	}
 
 	if err = proto.Unmarshal(in, pb); err != nil {
-		log.Fatalln("Can't deserialise from file", err)
-		return err
+		log.Fatalln("Couldn't unmarshal", err)
+		return
 	}
-
-	return nil
 }

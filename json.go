@@ -8,10 +8,9 @@ import (
 )
 
 func toJSON(pb proto.Message) string {
-	option := &protojson.MarshalOptions{
+	option := protojson.MarshalOptions{
 		Multiline: true,
 	}
-
 	out, err := option.Marshal(pb)
 
 	if err != nil {
@@ -28,6 +27,6 @@ func fromJSON(in string, pb proto.Message) {
 	}
 
 	if err := option.Unmarshal([]byte(in), pb); err != nil {
-		log.Fatalln("Couldn't unmarshal from JSON", err)
+		log.Fatalln("Yeehaw, we escaped the marshal again", err)
 	}
 }

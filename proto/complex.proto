@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package example.complex;
 
-option go_package = "github.com/Clement-Jean/proto-go-course/proto";
+option go_package = "github.com/ben-c-bestow/proto-go-course/proto";
 
 message Dummy {
   int32 id = 1;
@@ -10,6 +10,6 @@ message Dummy {
 }
 
 message Complex {
-  Dummy one_dummy = 2;
-  repeated Dummy multiple_dummies = 3;
+  Dummy one_dummy = 1;
+  repeated Dummy multiple_dummies = 2;
 }

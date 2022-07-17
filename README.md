@@ -1,6 +1,6 @@
 # proto-go-course
 
-[![build main branch](https://github.com/Clement-Jean/proto-go-course/actions/workflows/build.yml/badge.svg)](https://github.com/Clement-Jean/proto-go-course/actions/workflows/build.yml) [![Lint protobuf](https://github.com/Clement-Jean/proto-go-course/actions/workflows/lint.yml/badge.svg)](https://github.com/Clement-Jean/proto-go-course/actions/workflows/lint.yml)
+[![build main branch](https://github.com/ben-c-bestow/proto-go-course/actions/workflows/build.yml/badge.svg)](https://github.com/ben-c-bestow/proto-go-course/actions/workflows/build.yml) [![Lint protobuf](https://github.com/ben-c-bestow/proto-go-course/actions/workflows/lint.yml/badge.svg)](https://github.com/ben-c-bestow/proto-go-course/actions/workflows/lint.yml)
 
 ## Notes
 
@@ -36,7 +36,7 @@ make
 #### `Windows - Without Chocolatey`
 
 ```shell
-protoc -Iproto --go_opt=module=github.com/Clement-Jean/proto-go-course --go_out=. proto/*.proto
+protoc -Iproto --go_opt=module=github.com/ben-c-bestow/proto-go-course --go_out=. proto/*.proto
 
 go mod tidy
 go build -o proto-go-course.exe .
