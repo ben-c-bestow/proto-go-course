@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/benchatterton/sandbox/protobuf-course/proto-go-course'
+protoc -Iproto --go_opt=module=github.com/ben-c-bestow/proto-go-course --go_out=. proto/*.proto
+go build -o proto-go-course .
+make: Leaving directory `/Users/benchatterton/sandbox/protobuf-course/proto-go-course'
+ 
