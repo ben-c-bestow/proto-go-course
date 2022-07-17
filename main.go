@@ -65,7 +65,7 @@ func doFile(p proto.Message) {
 
 func doToJSON(p proto.Message) string {
 	jsonString := toJSON(p)
-	fmt.Println(jsonString)
+	// fmt.Println(jsonString)
 	return jsonString
 }
 
@@ -73,6 +73,22 @@ func doFromJSON(jsonString string, t reflect.Type) proto.Message {
 	message := reflect.New(t).Interface().(proto.Message)
 	fromJSON(jsonString, message)
 	return message
+}
+
+func doAddressBook() *pb.AddressBook {
+	return &pb.AddressBook{
+		People: []*pb.Person{
+			{
+				Name:  "Arthur Dent",
+				Id:    42,
+				Email: "dontpanic@example.com",
+				Phones: []*pb.Person_PhoneNumber{
+					{Number: "+44 1234 567890", Type: pb.Person_MOBILE},
+					{Number: "+44 4444 444444", Type: pb.Person_WORK},
+				},
+			},
+		},
+	}
 }
 
 func main() {
@@ -86,5 +102,6 @@ func main() {
 	// fmt.Println(jsonString)
 	// fmt.Println(message)
 
-	fmt.Println(doFromJSON(`{"id": 100, "unknown": "test"}`, reflect.TypeOf(pb.Simple{})))
+	jsonString := doToJSON(doAddressBook())
+	fmt.Println(jsonString)
 }
